@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title={labels.Opportunity_Search}>
+
+        
+        <div class="slds-m-around_medium slds-grid slds-wrap ">
+            <div class="slds-size_1-of-2">
+            <lightning-input 
+                placeholder="Search by Opportunity Stage, Account Name or Contact Name"
+                onchange={handleSearchvalueChange}
+                minlength="3"
+                message-when-too-short="Please enter atleast 3 characters to search !"
+                >
+            </lightning-input>
+
+            <template if:true={error} >
+
+                <p class="slds-p-top_medium">{error}</p>
+            </template>
+            </div>
+        </div>
+
+       
+            
+        
+        <template lwc:if={dataToPass}>
+        <c-reusable-data-table table-data={dataToPass}></c-reusable-data-table>
+
+        
+        
+    </template>
+
+    </lightning-card>
+</template>
